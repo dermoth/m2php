@@ -33,7 +33,7 @@ class Request
         $hd = Tool::parse_tnetstring($rest);
         $headers = $hd[0];
         $rest = $hd[1];
-        $hd = Tool::parse_tnetstring($rest);
+        $hd = Tool::parse_netstring($rest);
         $body = $hd[0];
 
         if (is_string($headers)) $headers = json_decode($headers, true);

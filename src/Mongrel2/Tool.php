@@ -4,6 +4,17 @@ namespace Mongrel2;
 
 class Tool
 {
+    static public function parse_netstring($ns)
+    {
+        list($len, $rest) = explode(':', $ns, 2);
+        $len = intval($len);
+
+        return array(
+            substr($rest, 0, $len),
+            substr($rest, $len+1)
+        );
+    }
+
 
     /* tnetstring parser from https://github.com/jessedp/tnetstrings-php
      * Besides some minor changes to accomodate this class, it only
